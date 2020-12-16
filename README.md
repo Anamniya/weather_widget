@@ -27,3 +27,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Data for widget
+Get data for the widget from [free public API](https://openweathermap.org/). You must register an account at OpenWeathe
