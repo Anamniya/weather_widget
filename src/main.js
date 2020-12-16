@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Weather from './Weather.vue'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 new Vue({
   render: h => h(Weather)
