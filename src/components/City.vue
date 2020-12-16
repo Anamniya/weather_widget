@@ -132,7 +132,7 @@ $bold-text: bold;
 }
 .city_name {
   font-size: 20px;
-  width: 150px;
+  width: 155px;
   font-weight: $bold-text;
   overflow: hidden;
 }
