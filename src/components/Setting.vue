@@ -105,13 +105,13 @@ $bold-text: bold;
   position: absolute;
   background-color: $wrapper-background-color;
   width: 222px;
-  height: 552px;
+  height: 557px;
   border: $border-size solid $border-color-dark;
   border-radius: $border-radius-main;
 }
 
 .setting {
-  width: 202px;
+  width: 200px;
   height: 250px;
   background-color: $main-background-color;
   color: $font-color;
