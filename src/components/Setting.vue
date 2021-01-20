@@ -1,6 +1,5 @@
 <template>
-  <div class="wrapper" :class="{ hidden: !hidden_active }">
-    <div class="setting">
+  <div class="setting" :class="{ hidden: !hidden_active }">
       <div class="close" @click="settingsToggle" :class="{ nonactive: !selected_city.length }">Done</div>
       <div class="header">Selected city:</div>
       <div class="input">
@@ -35,7 +34,6 @@
           </div>
         </draggable>
       </div>
-    </div>
   </div>
 </template>
 
@@ -90,10 +88,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$wrapper-background-color: rgba(79, 110, 110, 0.5);
-$main-background-color: rgba(79, 110, 110, 1);
+$background-color:linear-gradient(180deg,
+   rgba(79, 110, 110, 1) 0%,
+   rgb(103, 131, 131) 35%,
+   rgb(132, 161, 161) 100%);
 $font-color: rgb(218, 218, 218);
-$border-color-dark: rgba(58, 77, 80, 0.5);
 $border-color-light: rgb(218, 218, 218);
 $border-radius-main: 10px;
 $border-radius-item: 5px;
@@ -101,29 +100,21 @@ $border-size: 1px;
 $padding-all: 10px;
 $bold-text: bold;
 
-.wrapper {
-  position: absolute;
-  background-color: $wrapper-background-color;
-  width: 222px;
-  height: 557px;
-  border: $border-size solid $border-color-dark;
-  border-radius: $border-radius-main;
-}
-
 .setting {
-  width: 200px;
-  height: 250px;
-  background-color: $main-background-color;
-  color: $font-color;
-  border: $border-size solid $border-color-dark;
+  position: absolute;
+  background: $background-color;
+  width: 222px;
+  height: 523px;
+  margin: -1px 0px 0px -1px;
   border-radius: $border-radius-main;
-  overflow: auto;
   padding: $padding-all;
+  color: $font-color;
+  overflow: auto;
 }
 
 .close {
   text-align: end;
-  width: 190px;
+  width: 215px;
   height: 20px;
   cursor: pointer;
   font-weight: $bold-text;
@@ -151,7 +142,7 @@ $bold-text: bold;
 }
 
 .select_city {
-  width: 135px;
+  width: 150px;
   height: 20px;
   border-radius: $border-radius-item;
   resize: none;
@@ -160,6 +151,7 @@ $bold-text: bold;
 .btn {
   width: 40px;
   height: 23px;
+  margin-left: 5px;
   border-radius: $border-radius-item;
   text-align: center;
   border: $border-size solid $border-color-light;
@@ -168,7 +160,7 @@ $bold-text: bold;
 
 .city_list {
   margin-top: 10px;
-  width: 200px;
+  width: 218px;
 }
 
 .city {

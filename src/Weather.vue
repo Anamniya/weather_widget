@@ -1,8 +1,10 @@
 <template>
   <div id="weather">
     <div class="set" @click="settingsToggle"><span>&#9881;</span></div>
-    <div v-for="(city, i) of city_list" :key="city + i">
-      <City :city_id="city"/>
+    <div class="cities">
+      <div v-for="(city, i) of city_list" :key="city + i">
+        <City :city_id="city"/>
+      </div>
     </div>
     <Setting
       :hidden_active="setting"
@@ -49,6 +51,8 @@ $font-color-dark: rgb(58, 77, 80);
 $font-color-light: rgb(218, 218, 218);
 $font-family: Avenir, Helvetica, Arial, sans-serif;
 $border-radius: 10px;
+$border-color-dark: rgb(58, 77, 80);
+$border-size: 1px;
 $background-color: rgb(79, 110, 110);
 
 #weather {
@@ -57,18 +61,26 @@ $background-color: rgb(79, 110, 110);
   -moz-osx-font-smoothing: grayscale;
   color: $font-color-dark;
   margin: 50px;
-  width: 224px;
-  height: 563px;
+  width: 242px;
+  height: 543px;
   box-sizing: border-box;
+  border: $border-size solid $border-color-dark;
   border-radius: $border-radius;
   display: grid;
-  grid-gap: 10px;
   overflow: auto;
+}
+
+.cities > div{
+  border-bottom: $border-size solid $border-color-dark;
+}
+
+.cities :last-child{
+  border-bottom: 0px;
 }
 
 .set {
   position: absolute;
-  margin-left: 192px;
+  margin-left: 210px;
   font-size: 30px;
   cursor: pointer;
 }

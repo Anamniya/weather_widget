@@ -111,23 +111,18 @@ export default {
 <style lang="scss"  scoped>
 
 $font-color: rgb(58, 77, 80);
-$border-color: rgba(58, 77, 80, 0.5);
 $background-color: rgba(79, 110, 110, 0.5);
-$border-radius: 10px;
-$border-size: 1px;
 $padding-all: 10px;
 $bold-text: bold;
 
 .city {
-  width: 202px;
+  width: 220px;
   height: 250px;
   color: $font-color;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   justify-items: center;
   background-color:$background-color;
-  border: $border-size solid $border-color;
-  border-radius: $border-radius;
   padding: $padding-all;
 }
 .city_name {
