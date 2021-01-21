@@ -53,7 +53,7 @@ $font-family: Avenir, Helvetica, Arial, sans-serif;
 $border-radius: 10px;
 $border-color-dark: rgb(58, 77, 80);
 $border-size: 1px;
-$background-color: rgb(79, 110, 110);
+$background-color: rgba(79, 110, 110, 0.1);
 
 #weather {
   font-family: $font-family;
@@ -63,11 +63,13 @@ $background-color: rgb(79, 110, 110);
   margin: 50px;
   width: 242px;
   height: 543px;
+  // height: 272px;
   box-sizing: border-box;
   border: $border-size solid $border-color-dark;
   border-radius: $border-radius;
   display: grid;
   overflow: auto;
+  background-color: $background-color;
 }
 
 .cities > div{

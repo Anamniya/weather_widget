@@ -88,10 +88,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$background-color:linear-gradient(180deg,
+$background-color:  rgba(79, 110, 110, 1);
+$background-gradient:linear-gradient(180deg,
    rgba(79, 110, 110, 1) 0%,
-   rgb(103, 131, 131) 35%,
-   rgb(132, 161, 161) 100%);
+   rgba(103, 131, 131, 1) 35%,
+   rgba(132, 161, 161, 1) 100%);
 $font-color: rgb(218, 218, 218);
 $border-color-light: rgb(218, 218, 218);
 $border-radius-main: 10px;
@@ -102,9 +103,11 @@ $bold-text: bold;
 
 .setting {
   position: absolute;
-  background: $background-color;
+  background-color: $background-color;
+  background: $background-gradient;
   width: 222px;
   height: 523px;
+  // height: 252px;
   margin: -1px 0px 0px -1px;
   border-radius: $border-radius-main;
   padding: $padding-all;
