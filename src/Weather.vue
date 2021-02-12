@@ -3,11 +3,12 @@
     <div class="set" @click="settingsToggle"><span>&#9881;</span></div>
     <div class="cities">
       <div v-for="(city, i) of city_list" :key="city + i">
-        <City :city_id="city"/>
+        <City :city_id="city" :props_config="config"/>
       </div>
     </div>
     <Setting
       :hidden_active="setting"
+      :available_cities="available_cities"
       @settingsToggle="settingsToggle"
       @selected_city="selected_city"
     />
@@ -18,6 +19,8 @@
 import City from './components/City.vue'
 import Setting from './components/Setting.vue'
 
+import axios from 'axios'
+
 export default {
   name: 'Weather',
   components: {
@@ -25,12 +28,15 @@ export default {
     Setting
   },
   created () {
+    this.getConfig()
     this.selected_city()
   },
   data () {
     return {
       setting: false,
-      city_list: []
+      city_list: [],
+      config: {},
+      available_cities: []
     }
   },
   methods: {
@@ -41,6 +47,18 @@ export default {
       const selectedCity = localStorage.getItem('selected_city')
       this.city_list = selectedCity ? selectedCity.split(',') : ['Current City']
       localStorage.setItem('selected_city', this.city_list)
+    },
+    getConfig () {
+      axios
+        .get('/config.json')
+        .then((response) => {
+          this.config = response.data
+          this.available_cities = this.config.city_list
+          // this.available_cities = response.data.city_list
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     }
   }
 }

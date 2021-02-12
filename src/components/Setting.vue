@@ -40,7 +40,6 @@
 <script>
 
 import draggable from 'vuedraggable'
-const config = require('../config.json')
 
 export default {
   name: 'Setting',
@@ -48,7 +47,14 @@ export default {
     draggable
   },
   props: {
-    hidden_active: Boolean
+    hidden_active: Boolean,
+    available_cities: Array
+  },
+  watch: {
+    available_cities: function (newValue) {
+      // console.log('watch.available_cities', newValue, this.available_cities)
+      this.city_list = newValue
+    }
   },
   data () {
     return {
@@ -59,9 +65,9 @@ export default {
     }
   },
   created () {
-    this.city_list = config.city_list
     const selectedCity = localStorage.getItem('selected_city')
     this.selected_city = selectedCity ? selectedCity.split(',') : []
+    this.$emit('selected_city')
   },
   methods: {
     select () {
